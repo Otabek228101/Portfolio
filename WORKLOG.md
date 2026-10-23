@@ -9,6 +9,7 @@
 | 3    | 48bc190, 6709e93 | task-3: typed content model; chore: update portfolio content | phase-a-foundation, phase-b-build |
 | 4    | 2ce2040 | task-4: shared scaffold and navigation                       | phase-b-build |
 | 5    | a4325ce | task-5: home screen sections                                 | phase-b-build |
+| 6    | 9e5f958 | task-6: reusable themed ProjectCard and Tag                             | phase-b-build |
 
 ## Phase A
 > Task 1 was committed after tasks 2 and 3: I forgot to commit it
