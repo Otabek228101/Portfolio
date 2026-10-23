@@ -10,7 +10,7 @@
 | 4    | 2ce2040 | task-4: shared scaffold and navigation                       | phase-b-build |
 | 5    | a4325ce | task-5: home screen sections                                 | phase-b-build |
 | 6    | 9e5f958 | task-6: reusable themed ProjectCard and Tag                             | phase-b-build |
-
+| 7    | a4ce2f5 | task-7: adaptive layout                          | phase-b-build |
 ## Phase A
 > Task 1 was committed after tasks 2 and 3: I forgot to commit it
 >  separately at the start. The app identity changes (display name,
@@ -22,6 +22,9 @@
 > `6709e93` on `phase-b-build`.
 
 > Sorry about that 🙏(when I started doing the tasks, I didn't pay attention to the need to commit)
+
+## Phase B
+>for task 7, I made screenshots in docs/screenshots/
 
 ## Branches
 

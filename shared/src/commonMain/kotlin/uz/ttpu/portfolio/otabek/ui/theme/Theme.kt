@@ -1,4 +1,15 @@
 package uz.ttpu.portfolio.otabek.ui.theme
 
-class Theme {
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.Composable
+
+@Composable
+fun PortfolioTheme(
+    darkTheme: Boolean,
+    content: @Composable () -> Unit,
+) {
+    MaterialTheme(
+        colorScheme = if (darkTheme) DarkColors else LightColors,
+        content = content,
+    )
 }

@@ -26,12 +26,14 @@ import uz.ttpu.portfolio.otabek.ui.components.WidthClass
 import uz.ttpu.portfolio.otabek.ui.screens.HomeScreen
 import uz.ttpu.portfolio.otabek.ui.screens.ProjectsScreen
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppNavigation() {
+fun AppNavigation(isDark: Boolean,onToggleTheme: () -> Unit,) {
     val navController = rememberNavController()
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
+
 
     val navigateTo: (String) -> Unit = { route ->
         navController.navigate(route) {
@@ -53,6 +55,11 @@ fun AppNavigation() {
                         navigationIcon = {
                             if (currentRoute != Routes.HOME) {
                                 IconButton(onClick = { navController.navigateUp() }) { Text("←") }
+                            }
+                        },
+                        actions = {
+                            IconButton(onClick = onToggleTheme) {
+                                Text(if (isDark) "☀" else "☾")
                             }
                         },
                     )
