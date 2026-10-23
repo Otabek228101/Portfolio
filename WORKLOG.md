@@ -1,21 +1,27 @@
 # Work Log
 
-## Phase A
-> Task 1 was committed after tasks 2 and 3: I forgot to commit it
-  separately at the start. The app identity changes (display name,
-  bundle ID) were committed later as `task-1` on the same branch
-  `phase-a-foundation` and merged into `main` with a second pull request.
-> Sorry about that 🙏
-
-### Tasks
+## Tasks
 
 | Task | Commit | Message | Branch |
 | --- | --- | --- | --- |
 | 1 | e0a2352 | task-1: set app identity and display name | phase-a-foundation |
 | 2 | f90926a | task-2: architecture skeleton | phase-a-foundation |
-| 3 | 48bc190 | task-3: typed content model | phase-a-foundation |
+| 3 | 48bc190, 6709e93 | task-3: typed content model; chore: update portfolio content | phase-a-foundation, phase-b-build |
+| 4 | 2ce2040 | task-4: shared scaffold and navigation | phase-b-build |
 
-### Branches
+## Phase A
+> Task 1 was committed after tasks 2 and 3: I forgot to commit it
+>  separately at the start. The app identity changes (display name,
+>  bundle ID) were committed later as `task-1` on the same branch
+>  `phase-a-foundation` and merged into `main` with a second pull request.
+
+>  The real code for task 3 was missing from the first `task-3` commit
+> (only placeholders were committed). It was committed later as
+> `6709e93` on `phase-b-build`.
+
+> Sorry about that 🙏(when I started doing the tasks, I didn't pay attention to the need to commit)
+
+## Branches
 
 ```
 ❯ git branch -a 
@@ -28,7 +34,7 @@
   remotes/origin/phase-b-build
 ```
 
-### History
+## History
 
 ```
 ❯ git log --oneline --graph --decorate --all
@@ -42,3 +48,4 @@
 |/  
 * 4d0fe31 (main) Initial commit
 ```
+
