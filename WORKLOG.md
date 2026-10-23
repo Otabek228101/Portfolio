@@ -11,6 +11,7 @@
 | 5    | a4325ce | task-5: home screen sections                                 | phase-b-build |
 | 6    | 9e5f958 | task-6: reusable themed ProjectCard and Tag                             | phase-b-build |
 | 7    | a4ce2f5 | task-7: adaptive layout                          | phase-b-build |
+| 8    | 329854b | task-8: light and dark theme                        | phase-b-build |
 ## Phase A
 > Task 1 was committed after tasks 2 and 3: I forgot to commit it
 >  separately at the start. The app identity changes (display name,
