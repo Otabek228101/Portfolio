@@ -14,6 +14,7 @@ data class Project(
     val repoUrl: String,
     val demoUrl: String? = null,
     val imageName: String? = null,
+    val featured: Boolean = false,
 )
 
 enum class SkillGroup(val label: String) {

@@ -21,12 +21,20 @@ object PortfolioContent {
                 description = "Modeled and textured in Blender, Marmoset and Substance",
                 tags = listOf("Blender", "Marmoset", "Substance"),
                 repoUrl = "https://www.artstation.com/artwork/QKG1LL",
+                featured = true,
             ),
             Project(
                 title = "Project Two",
                 description = "Short description of the second project.(I dont have normal public projects)",
                 tags = listOf("Go", "Docker"),
                 repoUrl = "https://github.com/Otabek228101/project-two",
+            ),
+            Project(
+                title = "saiga-12",
+                description = "I made it myself, cool?",
+                tags = listOf("Blender", "Marmoset", "Substance"),
+                repoUrl = "https://www.artstation.com/artwork/w0v5gw",
+                featured = true,
             ),
             Project(
                 title = "Project Three",

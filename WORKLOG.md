@@ -2,12 +2,13 @@
 
 ## Tasks
 
-| Task | Commit | Message | Branch |
-| --- | --- | --- | --- |
-| 1 | e0a2352 | task-1: set app identity and display name | phase-a-foundation |
-| 2 | f90926a | task-2: architecture skeleton | phase-a-foundation |
-| 3 | 48bc190, 6709e93 | task-3: typed content model; chore: update portfolio content | phase-a-foundation, phase-b-build |
-| 4 | 2ce2040 | task-4: shared scaffold and navigation | phase-b-build |
+| Task | Commit | Message                                                      | Branch |
+|------| --- |--------------------------------------------------------------| --- |
+| 1    | e0a2352 | task-1: set app identity and display name                    | phase-a-foundation |
+| 2    | f90926a | task-2: architecture skeleton                                | phase-a-foundation |
+| 3    | 48bc190, 6709e93 | task-3: typed content model; chore: update portfolio content | phase-a-foundation, phase-b-build |
+| 4    | 2ce2040 | task-4: shared scaffold and navigation                       | phase-b-build |
+| 5    | a4325ce | task-5: home screen sections                                 | phase-b-build |
 
 ## Phase A
 > Task 1 was committed after tasks 2 and 3: I forgot to commit it
