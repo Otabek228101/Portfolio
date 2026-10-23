@@ -8,8 +8,10 @@ fun PortfolioTheme(
     darkTheme: Boolean,
     content: @Composable () -> Unit,
 ) {
+    SystemBarsAppearance(isDark = darkTheme)
     MaterialTheme(
         colorScheme = if (darkTheme) DarkColors else LightColors,
+        typography = portfolioTypography(),
         content = content,
     )
 }

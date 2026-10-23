@@ -12,6 +12,7 @@ import uz.ttpu.portfolio.otabek.data.Portfolio
 import uz.ttpu.portfolio.otabek.data.PortfolioContent
 import uz.ttpu.portfolio.otabek.ui.screens.home.AboutSection
 import uz.ttpu.portfolio.otabek.ui.screens.home.ContactSection
+import uz.ttpu.portfolio.otabek.ui.screens.home.FooterSection
 import uz.ttpu.portfolio.otabek.ui.screens.home.HeroSection
 import uz.ttpu.portfolio.otabek.ui.screens.home.ProjectsSection
 import uz.ttpu.portfolio.otabek.ui.screens.home.SkillsSection
@@ -43,5 +44,6 @@ fun HomeScreen(
         item { SkillsSection(portfolio.skills) }
         item { ProjectsSection(portfolio.projects) }
         item { ContactSection(portfolio.links) }
+        item { FooterSection() }
     }
 }

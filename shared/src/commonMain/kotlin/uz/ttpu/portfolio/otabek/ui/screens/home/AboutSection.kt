@@ -15,6 +15,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import uz.ttpu.portfolio.otabek.data.Bio
 import uz.ttpu.portfolio.otabek.ui.components.SectionTitle
+import androidx.compose.foundation.Image
+import androidx.compose.ui.layout.ContentScale
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun AboutSection(bio: Bio, modifier: Modifier = Modifier) {
@@ -24,12 +27,16 @@ fun AboutSection(bio: Bio, modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Box(
-                Modifier
-                    .size(72.dp)
-                    .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
-            )
+            if (bio.photo != null) {
+                Image(
+                    painter = painterResource(bio.photo),
+                    contentDescription = "Photo of ${bio.name}",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(72.dp)
+                        .clip(CircleShape),
+                )
+            }
             Text(bio.about, style = MaterialTheme.typography.bodyMedium)
         }
     }
