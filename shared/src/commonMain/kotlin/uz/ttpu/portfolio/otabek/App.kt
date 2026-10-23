@@ -1,29 +1,12 @@
 package uz.ttpu.portfolio.otabek
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import org.jetbrains.compose.resources.painterResource
-
-import portfolio.shared.generated.resources.Res
-import portfolio.shared.generated.resources.compose_multiplatform
-import uz.ttpu.portfolio.otabek.ui.screens.HomeScreen
+import androidx.compose.runtime.Composable
+import uz.ttpu.portfolio.otabek.navigation.AppNavigation
 
 @Composable
-@Preview
 fun App() {
     MaterialTheme {
-        HomeScreen()
+        AppNavigation()
     }
 }

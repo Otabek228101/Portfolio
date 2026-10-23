@@ -13,22 +13,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import uz.ttpu.portfolio.otabek.data.Portfolio
 import uz.ttpu.portfolio.otabek.data.PortfolioContent
+import androidx.compose.material3.Button
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
     portfolio: Portfolio = PortfolioContent.portfolio,
+    onViewProjects: () -> Unit = {},
 ) {
     LazyColumn(
         modifier = modifier
-            .fillMaxSize()
-            .safeContentPadding(),
+            .fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         item {
             Text(portfolio.bio.name, style = MaterialTheme.typography.headlineMedium)
             Text(portfolio.bio.role)
+            Button(onClick = onViewProjects) {
+                Text("View projects")
+            }
         }
 
         item { Text("Projects", style = MaterialTheme.typography.titleMedium) }
