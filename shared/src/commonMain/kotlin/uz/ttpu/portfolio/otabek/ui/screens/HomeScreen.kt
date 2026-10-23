@@ -3,17 +3,18 @@ package uz.ttpu.portfolio.otabek.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import uz.ttpu.portfolio.otabek.data.Portfolio
 import uz.ttpu.portfolio.otabek.data.PortfolioContent
-import androidx.compose.material3.Button
+import uz.ttpu.portfolio.otabek.ui.screens.home.AboutSection
+import uz.ttpu.portfolio.otabek.ui.screens.home.ContactSection
+import uz.ttpu.portfolio.otabek.ui.screens.home.HeroSection
+import uz.ttpu.portfolio.otabek.ui.screens.home.ProjectsSection
+import uz.ttpu.portfolio.otabek.ui.screens.home.SkillsSection
 
 @Composable
 fun HomeScreen(
@@ -21,33 +22,26 @@ fun HomeScreen(
     portfolio: Portfolio = PortfolioContent.portfolio,
     onViewProjects: () -> Unit = {},
 ) {
+    val uriHandler = LocalUriHandler.current
     LazyColumn(
-        modifier = modifier
-            .fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(32.dp),
     ) {
         item {
-            Text(portfolio.bio.name, style = MaterialTheme.typography.headlineMedium)
-            Text(portfolio.bio.role)
-            Button(onClick = onViewProjects) {
-                Text("View projects")
-            }
+            HeroSection(
+                bio = portfolio.bio,
+                onViewProjects = onViewProjects,
+                onContact = {
+                    portfolio.links.firstOrNull()?.let {
+                        runCatching { uriHandler.openUri(it.url) }
+                    }
+                },
+            )
         }
-
-        item { Text("Projects", style = MaterialTheme.typography.titleMedium) }
-        items(portfolio.projects) { project ->
-            Text("${project.title}: ${project.tags.joinToString()}")
-        }
-
-        item { Text("Skills", style = MaterialTheme.typography.titleMedium) }
-        items(portfolio.skills) { skill ->
-            Text("${skill.name} (${skill.group.label})")
-        }
-
-        item { Text("Links", style = MaterialTheme.typography.titleMedium) }
-        items(portfolio.links) { link ->
-            Text("${link.label}: ${link.url}")
-        }
+        item { AboutSection(portfolio.bio) }
+        item { SkillsSection(portfolio.skills) }
+        item { ProjectsSection(portfolio.projects) }
+        item { ContactSection(portfolio.links) }
     }
 }
