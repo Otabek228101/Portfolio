@@ -14,7 +14,8 @@ import androidx.compose.ui.unit.dp
 import uz.ttpu.portfolio.otabek.data.Bio
 import uz.ttpu.portfolio.otabek.ui.components.LocalWidthClass
 import uz.ttpu.portfolio.otabek.ui.components.WidthClass
-
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
 @Composable
 fun HeroSection(
     bio: Bio,
@@ -48,9 +49,13 @@ private fun HeroText(bio: Bio, modifier: Modifier = Modifier) {
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun HeroButtons(onViewProjects: () -> Unit, onContact: () -> Unit) {
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
         Button(onClick = onViewProjects) { Text("View projects") }
         OutlinedButton(onClick = onContact) { Text("Contact me") }
     }

@@ -15,6 +15,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -51,18 +55,35 @@ fun AppNavigation(isDark: Boolean,onToggleTheme: () -> Unit,) {
                 modifier = Modifier.weight(1f),
                 topBar = {
                     TopAppBar(
-                        title = { Text("${PortfolioContent.portfolio.bio.name} Portfolio") },
+                        title = {
+                            Text(
+                                "${PortfolioContent.portfolio.bio.name} Portfolio",
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        },
                         navigationIcon = {
                             if (currentRoute != Routes.HOME) {
-                                IconButton(onClick = { navController.navigateUp() }) { Text("←") }
+                                IconButton(
+                                    onClick = { navController.navigateUp() },
+                                    modifier = Modifier.semantics { contentDescription = "Back" },
+                                ) {
+                                    Text("←", modifier = Modifier.clearAndSetSemantics { })
+                                }
                             }
                         },
                         actions = {
-                            IconButton(onClick = onToggleTheme) {
-                                Text(if (isDark) "☀" else "☾")
+                            IconButton(
+                                onClick = onToggleTheme,
+                                modifier = Modifier.semantics {
+                                    contentDescription = if (isDark) "Switch to light theme" else "Switch to dark theme"
+                                },
+                            ) {
+                                Text(if (isDark) "☀" else "☾", modifier = Modifier.clearAndSetSemantics { })
                             }
                         },
                     )
+
                 },
                 bottomBar = { if (!useRail) AppBottomBar(currentRoute, navigateTo) },
             ) { innerPadding ->
@@ -86,7 +107,7 @@ private fun AppBottomBar(currentRoute: String?, onNavigate: (String) -> Unit) {
             NavigationBarItem(
                 selected = currentRoute == dest.route,
                 onClick = { onNavigate(dest.route) },
-                icon = { Text(dest.icon) },
+                icon = { Text(dest.icon, modifier = Modifier.clearAndSetSemantics { }) },
                 label = { Text(dest.label) },
             )
         }
@@ -101,7 +122,7 @@ private fun AppNavRail(currentRoute: String?, onNavigate: (String) -> Unit) {
                 selected = currentRoute == dest.route,
                 onClick = { onNavigate(dest.route) },
                 icon = { Text(dest.icon) },
-                label = { Text(dest.label) },
+                label = { Text(dest.label, maxLines = 1) },
             )
         }
     }

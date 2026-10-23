@@ -1,10 +1,12 @@
 package uz.ttpu.portfolio.otabek.data
+import org.jetbrains.compose.resources.DrawableResource
 
 data class Bio(
     val name: String,
     val role: String,
     val tagline: String,
     val about: String,
+    val photo: DrawableResource? = null,
 )
 
 data class Project(
@@ -13,7 +15,7 @@ data class Project(
     val tags: List<String>,
     val repoUrl: String,
     val demoUrl: String? = null,
-    val imageName: String? = null,
+    val image: DrawableResource? = null,
     val featured: Boolean = false,
 )
 

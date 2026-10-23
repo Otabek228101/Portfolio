@@ -1,5 +1,10 @@
 package uz.ttpu.portfolio.otabek.data
 
+import portfolio.shared.generated.resources.Res
+import portfolio.shared.generated.resources.ak47
+import portfolio.shared.generated.resources.profile_photo
+import portfolio.shared.generated.resources.saiga12
+
 object PortfolioContent {
 
     val portfolio = Portfolio(
@@ -8,6 +13,7 @@ object PortfolioContent {
             role = "Mobile & Backend Developer & DevOps",
             tagline = "I build cross-platform apps with Kotlin and Go and can deploy it",
             about = "Student at TTPU. I like Linux, DevOps and building tools that run everywhere. And someday I'll be back in 3D.",
+            photo = Res.drawable.profile_photo,
         ),
         projects = listOf(
             Project(
@@ -21,6 +27,7 @@ object PortfolioContent {
                 description = "Modeled and textured in Blender, Marmoset and Substance",
                 tags = listOf("Blender", "Marmoset", "Substance"),
                 repoUrl = "https://www.artstation.com/artwork/QKG1LL",
+                image = Res.drawable.ak47,
                 featured = true,
             ),
             Project(
@@ -34,6 +41,7 @@ object PortfolioContent {
                 description = "I made it myself, cool?",
                 tags = listOf("Blender", "Marmoset", "Substance"),
                 repoUrl = "https://www.artstation.com/artwork/w0v5gw",
+                image = Res.drawable.saiga12,
                 featured = true,
             ),
             Project(

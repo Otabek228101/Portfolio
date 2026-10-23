@@ -19,6 +19,11 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import uz.ttpu.portfolio.otabek.data.Project
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import org.jetbrains.compose.resources.painterResource
 
 enum class ProjectCardVariant { Default, Featured }
 
@@ -75,6 +80,17 @@ fun ProjectCard(
             modifier = Modifier.padding(ProjectCardDefaults.ContentPadding),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            project.image?.let { image ->
+                Image(
+                    painter = painterResource(image),
+                    contentDescription = "Preview of ${project.title}",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .aspectRatio(16f / 9f)
+                        .clip(MaterialTheme.shapes.medium),
+                )
+            }
             if (variant == ProjectCardVariant.Featured) {
                 Text("★ Featured", style = MaterialTheme.typography.labelMedium)
             }
